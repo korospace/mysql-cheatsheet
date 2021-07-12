@@ -49,7 +49,7 @@
 <br />
 
 ## delete data
-*   This statement is used to delete data with specific row at table
+*   This statement is used to delete data with specific row at table.
     ```sh
     DELETE FROM products
     WHERE products_id = 'P0001';
@@ -94,32 +94,24 @@
     ```
     NOTE: _sql above syntax will display product data starting from row with index 2 and display only one data_
 
-* distinct
-    - with out distinct
-    ```sh
-    SELECT price FROM products;
-    ```
-    | price |
-    | :---: |
-    | 10000 |
-    | 10000 |
-    | 10000 |
-    | 10000 |
-    | 10000 |
-    | 10000 |
-    | 12000 |
-    | 29000 |
-    - with distinct
+* distinct <br/>
+    _This statement is used to delete data with specific row at table_
     ```sh
     SELECT DISTINCT price FROM products;
     ```
-    | price |
-    | :---: |
+    before    after
+    | price | | price |
+    | :---: | | :---: |
+    | 10000 | | 10000 |
+    | 10000 | | 12000 |
+    | 10000 | | 29000 |
+    | 10000 |
+    | 10000 |
     | 10000 |
     | 12000 |
     | 29000 |
 
-* div
+* div <br/>
     *The DIV function is used for integer division.*
     ```sh
     SELECT price          AS 'without div', 
@@ -139,7 +131,7 @@
 
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html_
 
-* string function
+* string function <br/>
     *The STRING function is used to manipulate character string effectively.*
     ```sh
     SELECT name, LOWER(name),UPPER(name),LENGTH(name) FROM products;
@@ -157,7 +149,7 @@
 
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/string-functions.html_
 
-* timestamp function
+* timestamp function <br/>
     *The TIMESTAMP function is used to manipulate temporal values.*
     ```sh
     SELECT created_at,TIME(created_at),DAY(created_at),MONTH(created_at),YEAR(created_at) FROM products;
