@@ -34,7 +34,8 @@
 <br />
 
 ## update data
-*   ```sh
+*   This statement is used to change data with specific row at table
+    ```sh
     UPDATE products 
     SET name = 'Kripik pisang sale manis', price = 12500,quantity = 76 
     WHERE product_id = 'P0004';
@@ -45,11 +46,11 @@
         ```
         UPDATE products set price = price + 500 WHERE product_id = 'P0004';
         ```
-        <br />
 <br />
 
 ## delete data
-*   ```sh
+*   This statement is used to delete data with specific row at table
+    ```sh
     DELETE FROM products
     WHERE products_id = 'P0001';
     ```
@@ -93,293 +94,85 @@
     ```
     NOTE:  
     - sql above syntax will display product data starting from row with index 2 and display only one data
-<br />
 
-## create database
-* This statement is used to create a new SQL database.
+* distinct
+    - with out distinct
     ```sh
-    CREATE DATABASE databasename;
+    SELECT price FROM products;
     ```
-<br />
+    | price |
+    | :---: |
+    | 10000 |
+    | 10000 |
+    | 10000 |
+    | 10000 |
+    | 10000 |
+    | 10000 |
+    | 12000 |
+    | 29000 |
+    - with distinct
+    ```sh
+    SELECT DISTINCT price FROM products;
+    ```
+    | price |
+    | :---: |
+    | 10000 |
+    | 12000 |
+    | 29000 |
 
-## delete database
-* This statement is used to drop an existing SQL database.
+* div
+    - The DIV function is used for integer division.
     ```sh
-    DROP DATABASE databasename;
+    SELECT price          AS 'without div', 
+           price div 1000 AS 'with div' 
+    FROM products;
     ```
-<br />
+    | without div | with div |
+    |:---:        |:---:     |
+    |       10000 |       10 |
+    |       10000 |       10 |
+    |       10000 |       10 |
+    |       10000 |       10 |
+    |       10000 |       10 |
+    |       10000 |       10 |
+    |       12000 |       12 |
+    |       29000 |       29 |
 
-## use database
-* This statement is used to select a database and perform SQL operations into that database.
-    ```sh
-    USE databasename;
-    ```
-<br />
+    - https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html
 
-## show engines
-* This statement is used to display a list of existing storage engines in the database.
+* string function
+    - The STRING function is used to manipulate character string effectively.
     ```sh
-    SHOW ENGINES;
+    SELECT name, LOWER(name),UPPER(name),LENGTH(name) FROM products;
     ```
-<br />
+    | name | LOWER(name) | UPPER(name) | LENGTH(name) |
+    | :---: | :---: | :---: | :---: |
+    | Popcorn Creamello 150gram | popcorn creamello 150gram | POPCORN CREAMELLO 150GRAM |           25 |
+    | Tricks backed chips       | tricks backed chips       | TRICKS BACKED CHIPS       |           19 |
+    | Rondoleti wafer           | rondoleti wafer           | RONDOLETI WAFER           |           15 |
+    | Kripik pisang sale        | kripik pisang sale        | KRIPIK PISANG SALE        |           18 |
+    | Mie ayam pangsit          | mie ayam pangsit          | MIE AYAM PANGSIT          |           16 |
+    | Mie ayam bakso            | mie ayam bakso            | MIE AYAM BAKSO            |           14 |
+    | Mie ayam pangsit+bakso    | mie ayam pangsit+bakso    | MIE AYAM PANGSIT+BAKSO    |           22 |
+    | Seblak original           | seblak original           | SEBLAK ORIGINAL           |           15 |
 
-## show tables
-* displays a list of tables that have been created at selected database.
-    ```sh
-    SHOW DATABASES;
-    ```
-<br />
+    - https://dev.mysql.com/doc/refman/8.0/en/string-functions.html
 
-## create table
-* This statement is used to create a new table in a database.
+* timestamp function
+    - The TIMESTAMP function is used to manipulate temporal values.
     ```sh
-    CREATE TABLE users 
-    (
-        user_id    INT(11)      AUTO_INCREMENT,
-        name       VARCHAR(100) NOT NULL,
-        email      VARCHAR(100) NOT NULL,
-        ava        VARCHAR(100) NOT NULL DEFAULT 'avatar.jpg',
-        wallet_id  INT,
-        created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY(user_id)
-    ) ENGINE = InnoDB;
+    SELECT created_at,TIME(created_at),DAY(created_at),MONTH(created_at),YEAR(created_at) FROM products;
     ```
-<br />
+    | created_at | TIME(created_at) | DAY(created_at) | MONTH(created_at) | YEAR(created_at) |
+    | :---: | :---: | :---: | :---: | :---: |
+    | 2021-07-13 05:43:22 | 05:43:22         |              13 |                 7 |             2021 |
+    | 2021-07-13 05:43:26 | 05:43:26         |              13 |                 7 |             2021 |
+    | 2021-07-13 05:43:26 | 05:43:26         |              13 |                 7 |             2021 |
+    | 2021-07-13 05:43:26 | 05:43:26         |              13 |                 7 |             2021 |
+    | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
+    | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
+    | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
+    | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
 
-## delete table
-* This statement is used to drop an existing table in a database.
-    ```sh
-    DROP TABLE tablename;
-    ```
-<br />
-
-## truncate table
-* This statement is used to remove all records from a table and reset AUTO_INCREMENT from zero. 
-    ```sh
-    TRUNCATE tablename;
-    ```
-<br />
-
-## desc table
-* This statement is used to display the schema of the selected table.
-    ```sh
-    DESC tablename;
-    ```
-    _or_
-    <br />
-
-    ```sh
-    SHOW CREATE TABLE tablename;
-    ```
-<br />
-
-## rename table
-* This statement is used to rename a table. 
-    ```sh
-    ALTER TABLE tablename rename to newname;
-    ```
-<br />
-
-## change table schema
-* drop column
-    ```sh
-    ALTER TABLE users DROP COLUMN ava;
-    ```
-
-* add column
-    ```sh
-    ALTER TABLE users ADD COLUMN ava VARCHAR(100) NOT NULL DEFAULT 'ava.png' AFTER email;
-    ```
-
-* rename column
-    ```sh
-    ALTER TABLE users CHANGE ava avatar VARCHAR(100) NOT NULL DEFAULT 'ava.png';
-    ```
-
-* modify column
-    ```sh
-    ALTER TABLE users MODIFY avatar VARCHAR(255) AFTER user_id;
-    ```
-<br />
-
-## primary key
-* when creating a table. 
-    ```sh
-    CREATE TABLE wishlist 
-    (
-        wishlist_id INT(11),
-        product_id  INT(11),
-        quantity    INT(11) NO NULL DEFAULT 1,
-        created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY(wishlist_id)
-    ) ENGINE = InnoDB;
-    ```
-    
-* if the table has been created
-    ```sh
-    ALTER TABLE wishlist ADD PRIMARY KEY (wishlist_id);
-    ```
-
-* drop a primary key
-    ```sh
-    ALTER TABLE wishlist DROP PRIMARY KEY;
-    ```
-    NOTE: _DROP PRIMARY KEY doesn't work if auto_increment is active in target column_
-<br />
-
-## foreign key
-* when creating a table. 
-    ```sh
-    CREATE TABLE wishlist (
-        wishlist_id INT(11)   NOT NULL AUTO_INCREMENT,
-        product_id  INT(11)   NOT NULL,
-        quantity    INT(11)   NOT NULL DEFAULT 1,
-        created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (wishlist_id),
-        CONSTRAINT  fk_w_p FOREIGN KEY (product_id) REFERENCES products (product_id) ON DELETE CASCADE ON UPDATE CASCADE
-    ) ENGINE=InnoDB;
-    ```
-    NOTE:  
-    - default behavior of foreign key is RESTRICT, when we just write the following syntax: 
-        ```
-        CONSTRAINT  fk_w_p FOREIGN KEY (product_id) REFERENCES products (product_id)
-        ```
-        <br />
-    
-* if the table has been created
-    ```sh
-    ALTER TABLE users ADD CONSTRAINT fk_u_w FOREIGN KEY (wallet_id) REFERENCES wallets(wallet_id);
-    ```
-
-* drop a foreign key
-    ```sh
-    ALTER TABLE wishlist DROP CONSTRAINT fk_w_p;
-    ALTER TABLE wishlist DROP INDEX fk_w_p;
-    ```
-
-* behavior of foreign key
-    The behavior I mean is what happens to the main table if the reference table is changed.<br />
-    |behavior    |    on Delele    |    on Update    |
-    |    :---:   |      :---:      |      :---:      |      
-    |RESTRICT    |  NOT ALLOWED    |   NOT ALLOWED   | 
-    |CASCADE     |  akan dihapus   |  akan diupdate  |
-    |NO ACTION   |   data tetap    |   data tetap    |
-    |SET NULL    | Dijadikan null  | dijadikan null  |
-
-<br />
-
-## unique constraint
-* when creating a table. 
-    ```sh
-    CREATE TABLE users(
-        user_id    INT PRIMARY KEY AUTO_INCREMENT,
-        avatar     VARCHAR(100) NOT NULL DEFAULT 'ava.png',
-        name       VARCHAR(100) NOT NULL,
-        email      VARCHAR(100) NOT NULL,
-        wallet_id  INT,
-        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        UNIQUE KEY name_is_unique(name)
-    ) ENGINE = InnoDB;
-    ```
-    
-* if the table has been created
-    ```sh
-    ALTER TABLE users ADD CONSTRAINT name_is_unique UNIQUE(name);
-    ```
-
-* drop a unique constraint
-    ```sh
-    ALTER TABLE users DROP CONSTRAINT name_is_uniqNDEX fk_w_p;
-    ```
-<br />
-
-## check constraint
-* when creating a table. 
-    ```sh
-    CREATE TABLE products(
-        product_id  INT PRIMARY KEY AUTO_INCREMENT,
-        name        VARCHAR(100) NOT NULL,
-        price       INT NOT NULL DEFAULT 1000,
-        quantity    INT NOT NULL DEFAULT 0,
-        category_id INT NOT NULL,
-        created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        CONSTRAINT price_check CHECK (price >= 1000)
-    ) ENGINE = InnoDB;
-    ```
-    
-* if the table has been created
-    ```sh
-    ALTER TABLE products ADD CONSTRAINT price_check CHECK (price >= 1000);
-    ```
-
-* drop a constraint check
-    ```sh
-    ALTER TABLE products DROP CONSTRAINT price_check;
-    ```
-<br />
-
-## indexing
-* when creating a table. 
-    ```sh
-    CREATE TABLE products(
-        product_id  INT PRIMARY KEY AUTO_INCREMENT,
-        name        VARCHAR(100) NOT NULL,
-        price       INT NOT NULL DEFAULT 1000,
-        quantity    INT NOT NULL DEFAULT 0,
-        category_id INT NOT NULL,
-        created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        INDEX price_index(price)
-    ) ENGINE = InnoDB;
-    ```
-    NOTE:  
-    - you can create many indexes as you want 
-    - you can create multiple indexes by using the following syntax:
-        ```
-        INDEX price_quantity_index(price,quantity);
-        ```
-        <br />
-* if the table has been created
-    ```sh
-    ALTER TABLE products ADD INDEX price_index(price);
-    ```
-
-* drop a index
-    ```sh
-    ALTER TABLE produk DROP INDEX price_index;
-    ```
-<br />
-
-## full text search
-* when creating a table. 
-    ```sh
-    CREATE TABLE products
-    (
-        poduct_id   INT(11)      NOT NULL,
-        name        VARCHAR(100) NOT NULL,
-        price       INT          NOT NULL DEFAULT 1000,
-        quantity    VARCHAR(100) NOT NULL DEFAULT 0,
-        keyword     VARCHAR(100),
-        description VARCHAR(100),
-        created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        FULLTEXT product_search (name,keyword,description)
-    ) ENGINE = InnoDB;
-    ```
-    NOTE:  
-    - fulltext does't work for price field because integer 
-    - how to use fulltext search:
-        ```
-        SELECT * FROM products WHERE MATCH(name,keyword.description) AGAINST("ayam bakso" IN NATURAL LANGUAGE MODE);
-        SELECT * FROM products WHERE MATCH(name,keyword.description) AGAINST("-ayam +bakso" IN BOOLEAN MODE);
-        SELECT * FROM products WHERE MATCH(name,keyword.description) AGAINST("ayam" WITH QUERY EXPANSION);
-        ```
-        <br />
-* if the table has been created
-    ```sh
-    ALTER TABLE produk ADD FULLTEXT product_search(name,keyword,description);
-    ```
-
-* drop a index
-    ```sh
-    ALTER TABLE products DROP INDEX product_search;
-    ```
+    - https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
 <br />
