@@ -18,8 +18,8 @@
 ## Table of Contents
 <details open="open">
   <ol>
-    <li><a href="1-sql-table-schema/README.md">Database schema</a></li>
-    <li><a href="#contact">Crud</a></li>
+    <li><a href="1-sql-database-schema/README.md">Database schema</a></li>
+    <li><a href="2-sql-crud/README.md">Crud</a></li>
     <li><a href="#acknowledgements">Table relationship</a></li>
   </ol>
 </details>
