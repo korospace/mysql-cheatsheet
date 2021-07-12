@@ -96,7 +96,7 @@
     - sql above syntax will display product data starting from row with index 2 and display only one data
 
 * distinct
-    - with out distinct
+    with out distinct
     ```sh
     SELECT price FROM products;
     ```
@@ -121,7 +121,7 @@
     | 29000 |
 
 * div
-    - The DIV function is used for integer division.
+    The DIV function is used for integer division.
     ```sh
     SELECT price          AS 'without div', 
            price div 1000 AS 'with div' 
@@ -138,10 +138,10 @@
     |       12000 |       12 |
     |       29000 |       29 |
 
-    - https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html
+    NOTE: https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html
 
 * string function
-    - The STRING function is used to manipulate character string effectively.
+    The STRING function is used to manipulate character string effectively.
     ```sh
     SELECT name, LOWER(name),UPPER(name),LENGTH(name) FROM products;
     ```
@@ -156,10 +156,10 @@
     | Mie ayam pangsit+bakso    | mie ayam pangsit+bakso    | MIE AYAM PANGSIT+BAKSO    |           22 |
     | Seblak original           | seblak original           | SEBLAK ORIGINAL           |           15 |
 
-    - https://dev.mysql.com/doc/refman/8.0/en/string-functions.html
+    NOTE: https://dev.mysql.com/doc/refman/8.0/en/string-functions.html
 
 * timestamp function
-    - The TIMESTAMP function is used to manipulate temporal values.
+    The TIMESTAMP function is used to manipulate temporal values.
     ```sh
     SELECT created_at,TIME(created_at),DAY(created_at),MONTH(created_at),YEAR(created_at) FROM products;
     ```
@@ -174,5 +174,5 @@
     | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
     | 2021-07-13 06:19:02 | 06:19:02         |              13 |                 7 |             2021 |
 
-    - https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
+    NOTE: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
 <br />
