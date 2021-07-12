@@ -96,7 +96,7 @@
     - sql above syntax will display product data starting from row with index 2 and display only one data
 
 * distinct
-    with out distinct
+    <br />with out distinct
     ```sh
     SELECT price FROM products;
     ```
@@ -110,7 +110,7 @@
     | 10000 |
     | 12000 |
     | 29000 |
-    - with distinct
+    <br />with distinct
     ```sh
     SELECT DISTINCT price FROM products;
     ```
@@ -121,7 +121,7 @@
     | 29000 |
 
 * div
-    The DIV function is used for integer division.
+    <br />The DIV function is used for integer division.
     ```sh
     SELECT price          AS 'without div', 
            price div 1000 AS 'with div' 
@@ -141,7 +141,7 @@
     NOTE: https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html
 
 * string function
-    The STRING function is used to manipulate character string effectively.
+    <br />The STRING function is used to manipulate character string effectively.
     ```sh
     SELECT name, LOWER(name),UPPER(name),LENGTH(name) FROM products;
     ```
@@ -159,7 +159,7 @@
     NOTE: https://dev.mysql.com/doc/refman/8.0/en/string-functions.html
 
 * timestamp function
-    The TIMESTAMP function is used to manipulate temporal values.
+    <br />The TIMESTAMP function is used to manipulate temporal values.
     ```sh
     SELECT created_at,TIME(created_at),DAY(created_at),MONTH(created_at),YEAR(created_at) FROM products;
     ```
