@@ -95,16 +95,16 @@
     NOTE: _sql above syntax will display product data starting from row with index 2 and display only one data_
 
 * distinct <br/>
-    _This statement is used to delete data with specific row at table_
+    _This statement is used to remove redundant data at table_
     ```sh
     SELECT DISTINCT price FROM products;
     ```
-    before    after
-    | price | | price |
-    | :---: | | :---: |
-    | 10000 | | 10000 |
-    | 10000 | | 12000 |
-    | 10000 | | 29000 |
+    without distinct with distinct
+    |     price    |     price     |
+    | :---: | :---: |
+    | 10000 | 10000 |
+    | 10000 | 12000 |
+    | 10000 | 29000 |
     | 10000 |
     | 10000 |
     | 10000 |
