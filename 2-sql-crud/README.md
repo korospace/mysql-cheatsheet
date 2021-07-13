@@ -99,8 +99,7 @@
     ```sh
     SELECT DISTINCT price FROM products;
     ```
-    without distinct with distinct
-    |     price    |     price     |
+    | price(without distinct) | price(with distinct)|
     | :---: | :---: |
     | 10000 | 10000 |
     | 10000 | 12000 |
