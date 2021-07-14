@@ -322,7 +322,8 @@
 <br />
 
 ## group by
-*   ```sh
+*   The GROUP BY statement groups rows that have the same values into summary rows
+    ```sh
     SELECT price AS 'price group' , 
            COUNT(product_id) AS 'total product' 
     FROM products 
@@ -338,7 +339,8 @@
 <br />
 
 ## having clause
-*   ```sh
+*   The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+    ```sh
     SELECT price AS 'price group' , 
            COUNT(product_id) AS total_product 
     FROM products 
@@ -351,7 +353,7 @@
 <br />
 
 ## sub queries
-    ```sh
+*   ```sh
     SELECT name,price,category_id 
     FROM products 
     WHERE price = (
@@ -359,12 +361,11 @@
         FROM products
     );
     ```
-<br />
     | name                | price | category_id |
     | :---: | :---: | :---: |
     | Ayam bakar Bu Mirna | 30000 |        NULL |
 
-    ```sh
+*   ```sh
     SELECT name,price,category_id 
     FROM products 
     WHERE price = (
@@ -374,12 +375,11 @@
         ON (products.category_id = categories.category_id)
     );
     ```
-<br />
     | name            | price | category_id |
     | :---: | :---: | :---: |
     | Rondoleti wafer | 29000 |           1 |
 
-    ```sh
+*   ```sh
     SELECT MAX(price) 
     FROM (
         SELECT price 
@@ -388,7 +388,6 @@
         ON (products.category_id = categories.category_id)
     ) AS product_categories;
     ```
-<br />
     | MAX(price) |
     | :---: |
     |      29000 |
