@@ -328,7 +328,7 @@
     FROM products 
     GROUP BY price;
     ```
-    
+<br />
     | price group | total product |
     | :---: | :---: |
     |       10000 |             6 |
@@ -346,7 +346,7 @@
     GROUP BY price
     HAVING total_product > 1;
     ```
-
+<br />
     | price group | total product |
     | :---: | :---: |
     |       10000 |             6 |
@@ -361,7 +361,7 @@
         FROM products
     );
     ```
-
+<br />
     | name                | price | category_id |
     | :---: | :---: | :---: |
     | Ayam bakar Bu Mirna | 30000 |        NULL |
@@ -376,7 +376,7 @@
         ON (products.category_id = categories.category_id)
     );
     ```
-
+<br />
     | name            | price | category_id |
     | :---: | :---: | :---: |
     | Rondoleti wafer | 29000 |           1 |
@@ -390,7 +390,7 @@
         ON (products.category_id = categories.category_id)
     ) AS product_categories;
     ```
-
+<br />
     | MAX(price) |
     | :---: |
     |      29000 |
