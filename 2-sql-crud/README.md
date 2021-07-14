@@ -15,6 +15,10 @@
     <li><a href="#insert-data">insert data</a></li>
     <li><a href="#update-data">update data</a></li>
     <li><a href="#delete-data">delete data</a></li>
+    <li><a href="#select-data">select data</a></li>
+    <li><a href="#where-clause">where clause</a></li>
+    <li><a href="#controll-flow">controll flow</a></li>
+    <li><a href="#agregat">agregat</a></li>
   </ul>
 </details>
 
@@ -109,6 +113,7 @@
     | 10000 |
     | 12000 |
     | 29000 |
+    <br />
 
 * div <br/>
     *The DIV function is used for integer division.*
@@ -129,6 +134,7 @@
     |       29000 |       29 |
 
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html_
+    <br />
 
 * string function <br/>
     *The STRING function is used to manipulate character string effectively.*
@@ -147,6 +153,7 @@
     | Seblak original           | seblak original           | SEBLAK ORIGINAL           |           15 |
 
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/string-functions.html_
+    <br />
 
 * timestamp function <br/>
     *The TIMESTAMP function is used to manipulate temporal values.*
@@ -166,3 +173,138 @@
 
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html_
 <br />
+
+## agregat
+* count
+    ```sh
+    SELECT COUNT(product_id) AS 'total product' FROM products;
+    ```
+    | total product |
+    |            10 |
+    <br />
+* sum
+    ```sh
+    SELECT SUM(quantity) AS 'summary of stock' FROM products;
+    ```
+    | summary of stock |
+    |              271 |
+    <br />
+* avg
+    ```sh
+    SELECT AVG(price) AS 'average price' FROM products;
+    ```
+    | total stock |
+    |         271 |
+    <br />
+* max value
+    ```sh
+    SELECT MAX(price) AS 'highest price' FROM products;
+    ```
+    | highest price |
+    |         29000 |
+    <br />
+* min value
+    ```sh
+    SELECT MIN(price) AS 'lowest price' FROM products;
+    ```
+    | lowest price |
+    |        29000 |
+    <br />
+
+## where clause
+* = , !=
+    ```sh
+    SELECT * FROM products WHERE quantity != 10;
+    ```
+* < , > , <= , >=
+    ```sh
+    SELECT * FROM products WHERE price > 10000;
+    ```
+* AND , OR
+    ```sh
+    SELECT * FROM products WHERE price < 20000 AND quantity > 10;
+    ```
+* ( ) operator
+    ```sh
+    SELECT * FROM products WHERE (price > 10000 AND quantity > 10) OR price < 29000;
+    ```
+* IS NULL operator
+    ```sh
+    SELECT * FROM products WHERE column_name IS NULL;
+    ```
+* BETWEEN , NOT BETWEEN
+    ```sh
+    SELECT * FROM products WHERE quantity NOT BETWEEN 10 AND 40;
+    ```
+* IN , NOT IN
+    ```sh
+    SELECT * FROM products WHERE price NOT IN(10000,12000);
+    ```
+<br />
+
+## controll flow
+* IFNULL 
+    ```sh
+    SELECT category_id AS 'without IFNULL', 
+           IFNULL(category_id,'not found') AS 'with IFNULL'
+    FROM products;
+    ```
+    | without IFNULL | with IFNULL |
+    | :---: | :---: |
+    |              1 | 1           |
+    |              1 | 1           |
+    |              1 | 1           |
+    |              1 | 1           |
+    |              2 | 2           |
+    |              2 | 2           |
+    |              2 | 2           |
+    |              3 | 3           |
+    |           NULL | not found   |
+    |           NULL | not found   |
+    <br />
+* IF 
+    ```sh
+    SELECT quantity AS 'stock',
+           IF( quantity <= 10,'low stock', 
+                IF( quantity <= 40 ,'ready stock', 
+                    IF( quantity > 40, 'over stock','over over stock'))) 
+                        AS 'stock level' 
+    FROM products;
+    ```
+    | stock | stock level |
+    | :---: | :---: |
+    |    40 | ready stock |
+    |    50 | over stock  |
+    |    10 | low stock   |
+    |    80 | over stock  |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    23 | ready stock |
+    |    28 | ready stock |
+    <br />
+* case
+    ```sh
+    SELECT quantity AS 'stock', 
+        CASE quantity 
+            WHEN 10 THEN 'low stock' 
+            WHEN 23 THEN 'ready stock' 
+            WHEN 28 THEN 'ready stock' 
+            ELSE 'over stock' 
+        END AS 'stock level' 
+    FROM products;
+    ```
+    | stock | stock level |
+    | :---: | :---: |
+    |    40 | over stock  |
+    |    50 | over stock  |
+    |    10 | low stock   |
+    |    80 | over stock  |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    10 | low stock   |
+    |    23 | ready stock |
+    |    28 | ready stock |
+    <br />
