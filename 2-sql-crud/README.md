@@ -132,8 +132,8 @@
     |       10000 |       10 |
     |       12000 |       12 |
     |       29000 |       29 |
-
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html_
+    
     <br />
 
 * string function <br/>
@@ -151,8 +151,8 @@
     | Mie ayam bakso            | mie ayam bakso            | MIE AYAM BAKSO            |           14 |
     | Mie ayam pangsit+bakso    | mie ayam pangsit+bakso    | MIE AYAM PANGSIT+BAKSO    |           22 |
     | Seblak original           | seblak original           | SEBLAK ORIGINAL           |           15 |
-
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/string-functions.html_
+    
     <br />
 
 * timestamp function <br/>
@@ -180,6 +180,7 @@
     SELECT COUNT(product_id) AS 'total product' FROM products;
     ```
     | total product |
+    | :---: |
     |            10 |
     <br />
 * sum
@@ -187,6 +188,7 @@
     SELECT SUM(quantity) AS 'summary of stock' FROM products;
     ```
     | summary of stock |
+    | :---: |
     |              271 |
     <br />
 * avg
@@ -194,6 +196,7 @@
     SELECT AVG(price) AS 'average price' FROM products;
     ```
     | total stock |
+    | :---: |
     |         271 |
     <br />
 * max value
@@ -201,6 +204,7 @@
     SELECT MAX(price) AS 'highest price' FROM products;
     ```
     | highest price |
+    | :---: |
     |         29000 |
     <br />
 * min value
@@ -208,6 +212,7 @@
     SELECT MIN(price) AS 'lowest price' FROM products;
     ```
     | lowest price |
+    | :---: |
     |        29000 |
     <br />
 
