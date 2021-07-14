@@ -19,6 +19,9 @@
     <li><a href="#where-clause">where clause</a></li>
     <li><a href="#controll-flow">controll flow</a></li>
     <li><a href="#agregat">agregat</a></li>
+    <li><a href="#group-by">group by</a></li>
+    <li><a href="#having-clause">having clause</a></li>
+    <li><a href="#sub-queries">sub queries</a></li>
   </ul>
 </details>
 
@@ -200,7 +203,7 @@
     | total stock |
     | :---: |
     |         271 |
-    <br />
+    
 * max value
     ```sh
     SELECT MAX(price) AS 'highest price' FROM products;
@@ -208,7 +211,7 @@
     | highest price |
     | :---: |
     |         29000 |
-    <br />
+    
 * min value
     ```sh
     SELECT MIN(price) AS 'lowest price' FROM products;
@@ -216,7 +219,8 @@
     | lowest price |
     | :---: |
     |        29000 |
-    <br />
+
+<br />
 
 ## where clause
 * = , !=
@@ -268,7 +272,7 @@
     |              3 | 3           |
     |           NULL | not found   |
     |           NULL | not found   |
-    <br />
+    
 * IF 
     ```sh
     SELECT quantity AS 'stock',
@@ -314,5 +318,74 @@
     |    10 | low stock   |
     |    23 | ready stock |
     |    28 | ready stock |
-    
+
+<br />
+
+## group by
+    ```sh
+    SELECT price AS 'price group' , 
+           COUNT(product_id) AS 'total product' 
+    FROM products 
+    GROUP BY price;
+    ```
+    | price group | total product |
+    | :---: | :---: |
+    |       10000 |             6 |
+    |       11000 |             1 |
+    |       12000 |             1 |
+    |       22000 |             1 |
+    |       29000 |             1 |
+<br />
+
+## having clause
+    ```sh
+    SELECT price AS 'price group' , 
+           COUNT(product_id) AS total_product 
+    FROM products 
+    GROUP BY price
+    HAVING total_product > 1;
+    ```
+    | price group | total product |
+    | :---: | :---: |
+    |       10000 |             6 |
+<br />
+
+## sub queries
+    ```sh
+    SELECT name,price,category_id 
+    FROM products 
+    WHERE price = (
+        SELECT MAX(price) 
+        FROM products
+    );
+    ```
+    | name                | price | category_id |
+    | :---: | :---: | :---: |
+    | Ayam bakar Bu Mirna | 30000 |        NULL |
+
+    ```sh
+    SELECT name,price,category_id 
+    FROM products 
+    WHERE price = (
+        SELECT MAX(price) 
+        FROM products 
+        JOIN categories 
+        ON (products.category_id = categories.category_id)
+    );
+    ```
+    | name            | price | category_id |
+    | :---: | :---: | :---: |
+    | Rondoleti wafer | 29000 |           1 |
+    ```sh
+    SELECT MAX(price) 
+    FROM (
+        SELECT price 
+        FROM products 
+        JOIN categories 
+        ON (products.category_id = categories.category_id)
+    ) AS product_categories;
+    ```
+    | MAX(price) |
+    | :---: |
+    |      29000 |
 <br />
