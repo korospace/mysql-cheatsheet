@@ -132,6 +132,7 @@
     |       10000 |       10 |
     |       12000 |       12 |
     |       29000 |       29 |
+    
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html_
     
     <br />
@@ -151,6 +152,7 @@
     | Mie ayam bakso            | mie ayam bakso            | MIE AYAM BAKSO            |           14 |
     | Mie ayam pangsit+bakso    | mie ayam pangsit+bakso    | MIE AYAM PANGSIT+BAKSO    |           22 |
     | Seblak original           | seblak original           | SEBLAK ORIGINAL           |           15 |
+    
     NOTE: _https://dev.mysql.com/doc/refman/8.0/en/string-functions.html_
     
     <br />
@@ -182,7 +184,7 @@
     | total product |
     | :---: |
     |            10 |
-    <br />
+    
 * sum
     ```sh
     SELECT SUM(quantity) AS 'summary of stock' FROM products;
@@ -190,7 +192,7 @@
     | summary of stock |
     | :---: |
     |              271 |
-    <br />
+    
 * avg
     ```sh
     SELECT AVG(price) AS 'average price' FROM products;
@@ -288,7 +290,7 @@
     |    10 | low stock   |
     |    23 | ready stock |
     |    28 | ready stock |
-    <br />
+    
 * case
     ```sh
     SELECT quantity AS 'stock', 
@@ -312,4 +314,5 @@
     |    10 | low stock   |
     |    23 | ready stock |
     |    28 | ready stock |
-    <br />
+    
+<br />
