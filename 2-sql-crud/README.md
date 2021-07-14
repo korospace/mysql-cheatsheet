@@ -322,13 +322,12 @@
 <br />
 
 ## group by
-    ```sh
+*   ```sh
     SELECT price AS 'price group' , 
            COUNT(product_id) AS 'total product' 
     FROM products 
     GROUP BY price;
     ```
-<br />
     | price group | total product |
     | :---: | :---: |
     |       10000 |             6 |
@@ -339,14 +338,13 @@
 <br />
 
 ## having clause
-    ```sh
+*   ```sh
     SELECT price AS 'price group' , 
            COUNT(product_id) AS total_product 
     FROM products 
     GROUP BY price
     HAVING total_product > 1;
     ```
-<br />
     | price group | total product |
     | :---: | :---: |
     |       10000 |             6 |
