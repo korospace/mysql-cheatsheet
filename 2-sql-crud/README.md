@@ -22,6 +22,7 @@
     <li><a href="#group-by">group by</a></li>
     <li><a href="#having-clause">having clause</a></li>
     <li><a href="#sub-queries">sub queries</a></li>
+    <li><a href="#union">union</a></li>
   </ul>
 </details>
 
@@ -392,3 +393,115 @@
     | :---: |
     |      29000 |
 <br />
+
+## union
+* union
+    ```sh
+    SELECT category_id FROM products UNION SELECT category_id FROM categories;
+    ```
+    | category_id (table products) | category_id (table categoires) | UNION |
+    | :---: | :---: | :---: |
+    |         C01 |         C01 |         C01 |
+    |         C01 |         C02 |         C02 |
+    |         C01 |         C03 |         C03 |
+    |         C01 |             |        NULL |
+    |         C02 |
+    |         C02 |
+    |         C02 |
+    |         C03 |
+    |        NULL |
+    |        NULL |
+
+    <br />
+* union all
+    ```sh
+    SELECT category_id FROM products UNION ALL SELECT category_id FROM categories;
+    ```
+    | category_id (table products) | category_id (table categoires) | UNION ALL |
+    | :---: | :---: | :---: |
+    |         C01 |         C01 |         C01 |
+    |         C01 |         C02 |         C01 |
+    |         C01 |         C03 |         C01 |
+    |         C01 |             |         C01 |
+    |         C02 |             |         C02 |
+    |         C02 |             |         C02 |
+    |         C02 |             |         C02 |
+    |         C03 |             |         C03 |
+    |        NULL |             |        NULL |
+    |        NULL |             |        NULL |
+    |             |             |         C01 |
+    |             |             |         C02 |
+    |             |             |         C03 |
+
+    <br />
+* intersect
+    - using sub query
+    ```sh
+    SELECT category_id 
+    FROM products 
+    WHERE category_id IN (
+        SELECT category_id 
+        FROM categories
+    );
+    ```
+    _or_
+    <br />
+    - using join    
+    ```sh
+    SELECT products.category_id 
+    FROM products 
+    JOIN categories 
+    ON (products.category_id = categories.category_id);
+    ```
+    | category_id (table products) | category_id (table categoires) | INSTERSECT |
+    | :---: | :---: | :---: |
+    |         C01 |         C01 |         C01 |
+    |         C01 |         C02 |         C01 |
+    |         C01 |         C03 |         C01 |
+    |         C01 |             |         C01 |
+    |         C02 |             |         C02 |
+    |         C02 |             |         C02 |
+    |         C02 |             |         C02 |
+    |         C03 |             |         C03 |
+    |        NULL |             |
+    |        NULL |             |
+
+    <br />
+* minus
+    - using sub query
+    ```sh
+    SELECT category_id 
+    FROM products 
+    WHERE category_id NOT IN (
+        SELECT category_id 
+        FROM categories
+    );
+    ```
+    _or_
+    <br />
+    - using left join    
+    ```sh
+    SELECT products.category_id 
+    FROM products 
+    LEFT JOIN categories 
+    ON (products.category_id = categories.category_id ) 
+    WHERE categories.category_id IS NULL;
+
+    ```
+    | category_id (table products) | category_id (table categoires) | INSTERSECT |
+    | :---: | :---: | :---: |
+    |         CO1 |         CO1 |        CO99 |
+    |         CO1 |         C02 |        CO99 |
+    |         CO1 |         C03 |         
+    |         CO1 |             |         
+    |         C02 |             |         
+    |         C02 |             |         
+    |         C02 |             |         
+    |         C03 |             |         
+    |        NULL |             |
+    |        NULL |             |
+    |             |             |
+    |             |             |
+    |             |             |
+
+    <br />
