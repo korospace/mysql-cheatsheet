@@ -387,7 +387,8 @@
 
 ## join
 * inner join / join
-    this keyword selects records that have matching values in both tables.
+    <br/>
+    **this keyword selects records that have matching values in both tables.**
     ```sh
     SELECT products.category_id   AS 'from products',
            categories.category_id AS 'from categories' 
@@ -407,7 +408,8 @@
     | C03           | C03             |
     
 * left join
-    this keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+    <br/>
+    ***this keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.***
     ```sh
     SELECT products.category_id   AS 'from products',
            categories.category_id AS 'from categories' 
@@ -429,11 +431,12 @@
     | C099          | NULL            |
     
 * right join
-    THIS keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match. 
+    <br/>
+    ***THIS keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match. ***
     ```sh
     SELECT products.category_id 
     FROM products 
-    JOIN categories 
+    RIGHT JOIN categories 
     ON (products.category_id = categories.category_id);
     ```
     | from products | from categories |
@@ -450,7 +453,8 @@
     | NULL          | C05             |
     
 * cross join
-    The SQL CROSS JOIN produces a result set which is the number of rows in the first table multiplied by the number of rows in the second table.   
+    <br/>
+    ***The SQL CROSS JOIN produces a result set which is the number of rows in the first table multiplied by the number of rows in the second table.***
     ```sh
     SELECT products.category_id   AS 'from products',            
            categories.category_id AS 'from categories'      
@@ -549,6 +553,7 @@
     |             |             |         C03 |
 
 * intersect
+    <br/>
     using sub query
     ```sh
     SELECT category_id 
@@ -581,6 +586,7 @@
     |        NULL |             |
 
 * minus
+    <br/>
     using sub query
     ```sh
     SELECT category_id 
