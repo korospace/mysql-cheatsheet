@@ -12,8 +12,9 @@
 <details close="close">
   <summary>Table of Contents</summary>
   <ul>
-    <li><a href="#insert-data">one to one</a></li>
-    <li><a href="#update-data">one to many</a></li>
+    <li><a href="#one-to-one">one to one</a></li>
+    <li><a href="#one-to-many">one to many</a></li>
+    <li><a href="#many-to-many">many to many</a></li>
   </ul>
 </details>
 
@@ -62,9 +63,14 @@
     ```
     _or_
     <br/>
+
     ```
     SELECT name,balance 
     FROM wallets AS w 
     JOIN users   AS u 
     ON (w.user_id = u.user_id);
     ```
+    | name   | balance |
+    | :--: | :--: |
+    | Johan  | 1000000 |
+    | Maryam | 2300000 |

@@ -56,7 +56,10 @@
   </ul>
 </details>
 <details close="close">
-  <summary><a href="3-sql-table-relationship">Table relationship</a></summary>
+  <summary><a href="3-sql-table-relationship/README.md/">Table relationship</a></summary>
   <ul>
+    <li><a href="3-sql-table-relationship/README.md/#one-to-one">one to one</a></li>
+    <li><a href="3-sql-table-relationship/README.md/#one-to-many">one to many</a></li>
+    <li><a href="3-sql-table-relationship/README.md/#many-to-many">many to many</a></li>
   </ul>
 </details>
