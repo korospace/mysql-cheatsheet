@@ -19,9 +19,9 @@
     <li><a href="#where-clause">where clause</a></li>
     <li><a href="#controll-flow">controll flow</a></li>
     <li><a href="#agregat">agregat</a></li>
-    <li><a href="#group-by">group by</a></li>
     <li><a href="#join">join</a></li>
     <li><a href="#union">union</a></li>
+    <li><a href="#group-by">group by</a></li>
     <li><a href="#having-clause">having clause</a></li>
     <li><a href="#sub-queries">sub queries</a></li>
   </ul>
@@ -388,7 +388,7 @@
 ## join
 * inner join / join
     <br/>
-    **this keyword selects records that have matching values in both tables.**
+    ***this keyword selects records that have matching values in both tables.***
     ```sh
     SELECT products.category_id   AS 'from products',
            categories.category_id AS 'from categories' 
@@ -432,7 +432,7 @@
     
 * right join
     <br/>
-    ***THIS keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match. ***
+    ***THIS keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.***
     ```sh
     SELECT products.category_id 
     FROM products 

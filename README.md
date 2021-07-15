@@ -16,10 +16,47 @@
 </p>
 
 ## Table of Contents
-<details open="open">
-  <ol>
-    <li><a href="1-sql-database-schema/README.md">Database schema</a></li>
-    <li><a href="2-sql-crud/README.md">Crud</a></li>
-    <li><a href="#acknowledgements">Table relationship</a></li>
-  </ol>
+<details close="close">
+  <summary><a href="1-sql-database-schema/README.md">Database schema</a></summary>
+  <ul>
+    <li><a href="1-sql-database-schema/README.md/#show-databases">show databases</a></li>
+    <li><a href="1-sql-database-schema/README.md/#create-database">create database</a></li>
+    <li><a href="1-sql-database-schema/README.md/#delete-database">delete database</a></li>
+    <li><a href="1-sql-database-schema/README.md/#use-database">use database</a></li>
+    <li><a href="1-sql-database-schema/README.md/#show-engines">show engines</a></li>
+    <li><a href="1-sql-database-schema/README.md/#show-tables">show tables</a></li>
+    <li><a href="1-sql-database-schema/README.md/#create-table">create table</a></li>
+    <li><a href="1-sql-database-schema/README.md/#delele-table">delele table</a></li>
+    <li><a href="1-sql-database-schema/README.md/#truncate-table">truncate table</a></li>
+    <li><a href="1-sql-database-schema/README.md/#desc-table">desc table</a></li>
+    <li><a href="1-sql-database-schema/README.md/#rename-table">rename table</a></li>
+    <li><a href="1-sql-database-schema/README.md/#change-table-schema">change table schema</a></li>
+    <li><a href="1-sql-database-schema/README.md/#primary-key">primary key</a></li>
+    <li><a href="1-sql-database-schema/README.md/#foreign-key">foreign key</a></li>
+    <li><a href="1-sql-database-schema/README.md/#unique-constraint">unique constraint</a></li>
+    <li><a href="1-sql-database-schema/README.md/#indexing">indexing</a></li>
+    <li><a href="1-sql-database-schema/README.md/#full-text-search">full text search</a></li>
+  </ul>
+</details>
+<details close="close">
+  <summary><a href="2-sql-crud/README.md">Crud</a></summary>
+  <ul>
+    <li><a href="2-sql-crud/README.md/#insert-data">insert data</a></li>
+    <li><a href="2-sql-crud/README.md/#update-data">update data</a></li>
+    <li><a href="2-sql-crud/README.md/#delete-data">delete data</a></li>
+    <li><a href="2-sql-crud/README.md/#select-data">select data</a></li>
+    <li><a href="2-sql-crud/README.md/#where-clause">where clause</a></li>
+    <li><a href="2-sql-crud/README.md/#controll-flow">controll flow</a></li>
+    <li><a href="2-sql-crud/README.md/#agregat">agregat</a></li>
+    <li><a href="2-sql-crud/README.md/#join">join</a></li>
+    <li><a href="2-sql-crud/README.md/#union">union</a></li>
+    <li><a href="2-sql-crud/README.md/#group-by">group by</a></li>
+    <li><a href="2-sql-crud/README.md/#having-clause">having clause</a></li>
+    <li><a href="2-sql-crud/README.md/#sub-queries">sub queries</a></li>
+  </ul>
+</details>
+<details close="close">
+  <summary><a href="#acknowledgements">Table relationship</a></summary>
+  <ul>
+  </ul>
 </details>
