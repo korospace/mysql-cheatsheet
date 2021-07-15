@@ -143,10 +143,10 @@
 <br/>
 
 ## many to many
-
 <br/>
 many to many is a combination of two or more one to many. in this case, orders to orders_detail is one to many. Products to orders_detail is one to many. Users to orders_detail is one to many.
 <br/>
+
 
 ***example case:***
 * first, create a ***users table***
