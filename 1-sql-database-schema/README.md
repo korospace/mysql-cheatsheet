@@ -19,7 +19,7 @@
     <li><a href="#show-engines">show engines</a></li>
     <li><a href="#show-tables">show tables</a></li>
     <li><a href="#create-table">create table</a></li>
-    <li><a href="#delele-table">delele table</a></li>
+    <li><a href="#delete-table">delete table</a></li>
     <li><a href="#truncate-table">truncate table</a></li>
     <li><a href="#desc-table">desc table</a></li>
     <li><a href="#rename-table">rename table</a></li>
