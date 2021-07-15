@@ -73,7 +73,8 @@
     <br/>
 
     ```
-    SELECT name,balance 
+    ```
+    SELECT u.name,w.balance 
     FROM wallets AS w 
     JOIN users   AS u 
     ON (w.user_id = u.user_id);
@@ -82,7 +83,7 @@
     | :--: | :--: |
     | Johan  | 1000000 |
     | Maryam | 2300000 |
-    <br/>
+<br/>
 
 ## one to many
 ***example case:***
@@ -139,4 +140,87 @@
     | spicy food      | spicy burger              |
     | fresh drink     | grapefruit ice            |
     | fresh drink     | Mango juice               |
+<br/>
 
+## many to many
+
+<br/>
+many to many is a combination of two or more one to many. in this case, orders to orders_detail is one to many. Products to orders_detail is one to many. Users to orders_detail is one to many.
+<br/>
+
+***example case:***
+* first, create a ***users table***
+    ```
+    create table users(
+        user_id    VARCHAR(100) PRIMARY KEY,
+        name       VARCHAR(100),
+    ) Engine = InnoDB;
+    ```
+* second, create a ***products table***
+    ```
+    CREATE TABLE product (
+        product_id  varchar(100) PRIMARY KEY,
+        name        varchar(100) NOT NULL,
+        price       int(11)      NOT NULL DEFAULT 0,
+        quantity    int(11)      NOT NULL DEFAULT 0,
+        category_id varchar(100),
+        created_at  timestamp    NOT NULL DEFAULT current_timestamp()
+    ) ENGINE=InnoDB;
+    ```
+* third, create a ***orders table***
+    ```
+    CREATE TABLE orders(
+        order_id   VARCHAR(100) PRIMARY KEY,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    ) Engine = InnoDB;
+
+    ```
+* fourth, create a ***orders_detail table***
+    ```
+    CREATE TABLE orders_detail(
+        order_id   VARCHAR(100),
+        product_id VARCHAR(100),
+        user_id    VARCHAR(100),
+        quantity   INT
+    ) Engine = InnoDB;
+    ```
+* insert data
+    ```
+    INSERT INTO orders(order_id) 
+    VALUES ('ORDER1')
+           ('ORDER2')
+           ('ORDER3')
+           ('ORDER4');
+    ```
+    ```
+    INSERT INTO orders_detail(order_id,product_id,user_id,quantity) 
+    VALUES ('ORDER1','P0001','U001',3),
+           ('ORDER1','P0002','U001',2),
+           ('ORDER1','P0003','U001',5),
+           ('ORDER1','P0004','U001',1),
+           ('ORDER2','P0001','U004',10),
+           ('ORDER3','P0002','U003',6),
+           ('ORDER4','P0003','U002',9),
+           ('ORDER4','P0004','U001',9);
+    ```
+* how to use?
+    ```
+    SELECT o.order_id,
+           u.name AS 'user name',
+           p.name AS 'product name',
+           od.quantity 
+    FROM orders_detail AS od 
+    JOIN orders        AS o ON (o.order_id   = od.order_id) 
+    JOIN users         AS u ON (u.user_id    = od.user_id) 
+    JOIN products      AS p ON (p.product_id = od.product_id);
+    ```
+    | order_id | user name   | product name | quantity |
+    | :--: | :--: | :--: | :--: |
+    | ORDER1   | Johan  | Popcorn Creamello 150gram |        3 |
+    | ORDER1   | Johan  | Tricks backed chips       |        2 |
+    | ORDER1   | Johan  | Rondoleti wafer           |        5 |
+    | ORDER1   | Johan  | Kripik pisang sale        |        1 |
+    | ORDER4   | Johan  | Kripik pisang sale        |        9 |
+    | ORDER4   | Zaki   | Rondoleti wafer           |        9 |
+    | ORDER3   | Maryam | Tricks backed chips       |        6 |
+    | ORDER2   | Jordan | Popcorn Creamello 150gram |       10 |
