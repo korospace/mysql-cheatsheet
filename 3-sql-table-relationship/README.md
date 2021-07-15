@@ -20,7 +20,7 @@
 
 ## one to one
 ***example case:***
-* first, create a wallet table
+* first, create a _wallet table_
     ```
     CREATE TABLE wallets(
         wallet_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,27 +28,27 @@
         balance   INT
     ) Engine = InnoDB;
     ```
-* second, create a users table
+* second, create a _users table_
     ```
     create table users(
         user_id    VARCHAR(100) PRIMARY KEY,
         name       VARCHAR(100),
     ) Engine = InnoDB;
     ```
-* third, add foreign key to wallets table references to users table
+* third, add foreign key to _wallets table_ references to _users table_
     ```
     ALTER TABLE wallets 
     ADD CONSTRAINT fk_wallets_users 
     FOREIGN KEY (user_id) 
     REFERENCES users(user_id);
     ```
-* fourth, make the user_id column in the wallets table as unique value
+* fourth, make the user_id column in the _wallets table_ as unique value
     ```
     ALTER TABLE wallets 
     ADD CONSTRAINT userid_unique 
     UNIQUE (user_id);
     ```
-    NOTE: _This step is very important because it only allows one row in the wallets column to be connected to one row in the users column_
+    NOTE: *we can't add foreign key in column category_id at categories table because it's primary key for categories table*
 * insert data
     ```
     INSERT INTO users(user_id,name) 
@@ -86,14 +86,14 @@
 
 ## one to many
 ***example case:***
-* first, create a 'categories' table
+* first, create a _categories table_
     ```
     CREATE TABLE categorie (
         category_id varchar(100) PRIMARY KEY,
         name        varchar(100) NOT NULL
     ) ENGINE=InnoDB;
     ```
-* second, create a 'products' table
+* second, create a _products table_
     ```
     CREATE TABLE product (
         product_id  varchar(100) PRIMARY KEY,
@@ -104,7 +104,7 @@
         created_at  timestamp    NOT NULL DEFAULT current_timestamp()
     ) ENGINE=InnoDB;
     ```
-* third, add foreign key to 'products' table references to 'categories' table
+* third, add foreign key to _products table_ references to _categories table_
     ```
     ALTER TABLE products 
     ADD CONSTRAINT fk_prod_cat 
