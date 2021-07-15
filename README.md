@@ -56,7 +56,7 @@
   </ul>
 </details>
 <details close="close">
-  <summary><a href="#acknowledgements">Table relationship</a></summary>
+  <summary><a href="3-sql-table-relationship">Table relationship</a></summary>
   <ul>
   </ul>
 </details>
