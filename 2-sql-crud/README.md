@@ -20,9 +20,10 @@
     <li><a href="#controll-flow">controll flow</a></li>
     <li><a href="#agregat">agregat</a></li>
     <li><a href="#group-by">group by</a></li>
+    <li><a href="#join">join</a></li>
+    <li><a href="#union">union</a></li>
     <li><a href="#having-clause">having clause</a></li>
     <li><a href="#sub-queries">sub queries</a></li>
-    <li><a href="#union">union</a></li>
   </ul>
 </details>
 
@@ -384,6 +385,131 @@
     |      29000 |
 <br />
 
+## join
+* inner join / join
+    this keyword selects records that have matching values in both tables.
+    ```sh
+    SELECT products.category_id   AS 'from products',
+           categories.category_id AS 'from categories' 
+    FROM products 
+    INNER JOIN categories 
+    ON (products.category_id =categories. category_id);
+    ```
+    | from products | from categories |
+    | :---: | :---: |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C03           | C03             |
+    
+* left join
+    this keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+    ```sh
+    SELECT products.category_id   AS 'from products',
+           categories.category_id AS 'from categories' 
+    FROM products 
+    LEFT JOIN categories 
+    ON (products.category_id =categories. category_id);
+    ```
+    | from products | from categories |
+    | :---: | :---: |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C03           | C03             |
+    | C099          | NULL            |
+    | C099          | NULL            |
+    
+* right join
+    THIS keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match. 
+    ```sh
+    SELECT products.category_id 
+    FROM products 
+    JOIN categories 
+    ON (products.category_id = categories.category_id);
+    ```
+    | from products | from categories |
+    | :---: | :---: |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C01           | C01             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C02           | C02             |
+    | C03           | C03             |
+    | NULL          | C04             |
+    | NULL          | C05             |
+    
+* cross join
+    The SQL CROSS JOIN produces a result set which is the number of rows in the first table multiplied by the number of rows in the second table.   
+    ```sh
+    SELECT products.category_id   AS 'from products',            
+           categories.category_id AS 'from categories'      
+    FROM products      
+    CROSS JOIN categories;
+    ```
+    | from products | from categories |
+    | :---: | :---: |
+    | C01           | C01             |
+    | C01           | C02             |
+    | C01           | C03             |
+    | C01           | C04             |
+    | C01           | C05             |
+    | C01           | C01             |
+    | C01           | C02             |
+    | C01           | C03             |
+    | C01           | C04             |
+    | C01           | C05             |
+    | C01           | C01             |
+    | C01           | C02             |
+    | C01           | C03             |
+    | C01           | C04             |
+    | C01           | C05             |
+    | C01           | C01             |
+    | C01           | C02             |
+    | C01           | C03             |
+    | C01           | C04             |
+    | C01           | C05             |
+    | C02           | C01             |
+    | C02           | C02             |
+    | C02           | C03             |
+    | C02           | C04             |
+    | C02           | C05             |
+    | C02           | C01             |
+    | C02           | C02             |
+    | C02           | C03             |
+    | C02           | C04             |
+    | C02           | C05             |
+    | C02           | C01             |
+    | C02           | C02             |
+    | C02           | C03             |
+    | C02           | C04             |
+    | C02           | C05             |
+    | C03           | C01             |
+    | C03           | C02             |
+    | C03           | C03             |
+    | C03           | C04             |
+    | C03           | C05             |
+    | C099          | C01             |
+    | C099          | C02             |
+    | C099          | C03             |
+    | C099          | C04             |
+    | C099          | C05             |
+    | C099          | C01             |
+    | C099          | C02             |
+    | C099          | C03             |
+    | C099          | C04             |
+    | C099          | C05             |
+    <br />
 ## union
 * union
     ```sh
@@ -402,7 +528,6 @@
     |        NULL |
     |        NULL |
 
-    <br />
 * union all
     ```sh
     SELECT category_id FROM products UNION ALL SELECT category_id FROM categories;
@@ -423,9 +548,8 @@
     |             |             |         C02 |
     |             |             |         C03 |
 
-    <br />
 * intersect
-    - using sub query
+    using sub query
     ```sh
     SELECT category_id 
     FROM products 
@@ -436,7 +560,7 @@
     ```
     _or_
     <br />
-    - using join    
+    using join    
     ```sh
     SELECT products.category_id 
     FROM products 
@@ -456,9 +580,8 @@
     |        NULL |             |
     |        NULL |             |
 
-    <br />
 * minus
-    - using sub query
+    using sub query
     ```sh
     SELECT category_id 
     FROM products 
@@ -469,14 +592,13 @@
     ```
     _or_
     <br />
-    - using left join    
+    using left join    
     ```sh
     SELECT products.category_id 
     FROM products 
     LEFT JOIN categories 
     ON (products.category_id = categories.category_id ) 
     WHERE categories.category_id IS NULL;
-
     ```
     | category_id (table products) | category_id (table categoires) | INSTERSECT |
     | :---: | :---: | :---: |
