@@ -63,3 +63,10 @@
     <li><a href="3-sql-table-relationship/README.md/#many-to-many">many to many</a></li>
   </ul>
 </details>
+<details close="close">
+  <summary><a href="4-sql-many-more/README.md/">Many more</a></summary>
+  <ul>
+    <li><a href="4-sql-many-more/README.md/#transaction">transaction</a></li>
+    <li><a href="4-sql-many-more/README.md/#locking">locking</a></li>
+  </ul>
+</details>
