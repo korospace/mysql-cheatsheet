@@ -12,7 +12,7 @@
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#transaction">transaction</a></li>
-    <li><a href="#locking-table">locking table</a></li>
+    <li><a href="#locking">locking</a></li>
     <li><a href="#user-management">user management</a></li>
     <li><a href="#backup-database">backup database</a></li>
     <li><a href="#restore-database">restore database</a></li>

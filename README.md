@@ -68,5 +68,8 @@
   <ul>
     <li><a href="4-sql-many-more/README.md/#transaction">transaction</a></li>
     <li><a href="4-sql-many-more/README.md/#locking">locking</a></li>
+    <li><a href="4-sql-many-more/README.md/#user-management">user management</a></li>
+    <li><a href="4-sql-many-more/README.md/#backup-database">backup database</a></li>
+    <li><a href="4-sql-many-more/README.md/#restore-database">restore database</a></li>
   </ul>
 </details>
