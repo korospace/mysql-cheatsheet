@@ -9,7 +9,7 @@
     <br />
 </p>
 
-<details close="close">
+<details open="open">
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#insert-data">insert data</a></li>
@@ -34,7 +34,6 @@
 <br />
 
 ## update data
-*   This statement is used to change data with specific row at table
     ```sh
     UPDATE products 
     SET name = 'Kripik pisang sale manis', price = 12500,quantity = 76 
@@ -49,7 +48,6 @@
 <br />
 
 ## delete data
-*   This statement is used to delete data with specific row at table.
     ```sh
     DELETE FROM products
     WHERE products_id = 'P0001';

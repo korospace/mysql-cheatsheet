@@ -8,7 +8,7 @@
     <br />
 </p>
 
-<details close="close">
+<details open="open">
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#transaction">transaction</a></li>
@@ -78,8 +78,6 @@
     <br/>
 
 ## user management
-<a href="https://dev.mysql.com/doc/refman/8.0/en/grant.html">https://dev.mysql.com/doc/refman/8.0/en/grant.html</a>
-
 * create user
     ```
     CREATE USER 'abdul'@'%';
