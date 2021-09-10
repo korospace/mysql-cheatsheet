@@ -2,14 +2,14 @@
 <p align="center">
     <h1 align="center">DDL</h1>
     <p align="center">
-        the syntax below is used to create or change table's schema at database.<br />
+        the syntax below is used to create or change table's schema.<br />
         <a href="../README.md"><strong>« back to menu</strong></a>
     </p>
     <br />
     <br />
 </p>
 
-<details close="close">
+<details open="open">
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#show-databases">show databases</a></li>
@@ -23,7 +23,7 @@
     <li><a href="#truncate-table">truncate table</a></li>
     <li><a href="#desc-table">desc table</a></li>
     <li><a href="#rename-table">rename table</a></li>
-    <li><a href="#change-table-schema">change table schema</a></li>
+    <li><a href="#edit-column">edit column</a></li>
     <li><a href="#primary-key">primary key</a></li>
     <li><a href="#foreign-key">foreign key</a></li>
     <li><a href="#unique-constraint">unique constraint</a></li>
@@ -33,30 +33,27 @@
 </details>
 
 ## show databases
-* This statement is used to displays a list of databases that have been created
     ```sh
     SHOW DATABASES;
     ```
 <br />
 
 ## create database
-* This statement is used to create a new SQL database.
     ```sh
-    CREATE DATABASE databasename;
+    CREATE DATABASE database_name;
     ```
 <br />
 
 ## delete database
-* This statement is used to drop an existing SQL database.
     ```sh
-    DROP DATABASE databasename;
+    DROP DATABASE database_name;
     ```
 <br />
 
 ## use database
-* This statement is used to select a database and perform SQL operations into that database.
+* before working with a database, we have to run the following line
     ```sh
-    USE databasename;
+    USE database_name;
     ```
 <br />
 
@@ -68,14 +65,12 @@
 <br />
 
 ## show tables
-* displays a list of tables that have been created at selected database.
     ```sh
-    SHOW DATABASES;
+    SHOW TABLES;
     ```
 <br />
 
 ## create table
-* This statement is used to create a new table in a database.
     ```sh
     CREATE TABLE users 
     (
@@ -85,64 +80,63 @@
         ava        VARCHAR(100) NOT NULL DEFAULT 'avatar.jpg',
         wallet_id  INT,
         created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         PRIMARY KEY(user_id)
     ) ENGINE = InnoDB;
     ```
 <br />
 
 ## delete table
-* This statement is used to drop an existing table in a database.
     ```sh
-    DROP TABLE tablename;
+    DROP TABLE table_name;
     ```
 <br />
 
 ## truncate table
 * This statement is used to remove all records from a table and reset AUTO_INCREMENT from zero. 
     ```sh
-    TRUNCATE tablename;
+    TRUNCATE table_name;
     ```
 <br />
 
 ## desc table
 * This statement is used to display the schema of the selected table.
     ```sh
-    DESC tablename;
+    DESC table_name;
     ```
     _or_
     <br />
 
     ```sh
-    SHOW CREATE TABLE tablename;
+    SHOW CREATE TABLE table_name;
     ```
 <br />
 
 ## rename table
-* This statement is used to rename a table. 
     ```sh
-    ALTER TABLE tablename rename to newname;
+    ALTER TABLE table_name rename to new_table_name;
     ```
 <br />
 
-## change table schema
+## edit column
 * drop column
     ```sh
-    ALTER TABLE users DROP COLUMN ava;
+    ALTER TABLE users DROP COLUMN avatar;
     ```
 
 * add column
     ```sh
-    ALTER TABLE users ADD COLUMN ava VARCHAR(100) NOT NULL DEFAULT 'ava.png' AFTER email;
+    ALTER TABLE users ADD COLUMN avatar VARCHAR(100) NOT NULL DEFAULT 'avatar.png' AFTER email;
     ```
 
 * rename column
     ```sh
-    ALTER TABLE users CHANGE ava avatar VARCHAR(100) NOT NULL DEFAULT 'ava.png';
+    ALTER TABLE users CHANGE avatar img_profile VARCHAR(100) NOT NULL DEFAULT 'profile.png';
     ```
 
 * modify column
     ```sh
-    ALTER TABLE users MODIFY avatar VARCHAR(255) AFTER user_id;
+    ALTER TABLE users MODIFY img_profile VARCHAR(255) AFTER user_id;
     ```
 <br />
 
@@ -155,6 +149,7 @@
         product_id  INT(11),
         quantity    INT(11) NO NULL DEFAULT 1,
         created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         PRIMARY KEY(wishlist_id)
     ) ENGINE = InnoDB;
     ```
@@ -179,6 +174,7 @@
         product_id  INT(11)   NOT NULL,
         quantity    INT(11)   NOT NULL DEFAULT 1,
         created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         PRIMARY KEY (wishlist_id),
         CONSTRAINT  fk_w_p FOREIGN KEY (product_id) REFERENCES products (product_id) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB;
@@ -222,6 +218,7 @@
         email      VARCHAR(100) NOT NULL,
         wallet_id  INT,
         created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         UNIQUE KEY name_is_unique(name)
     ) ENGINE = InnoDB;
     ```
@@ -247,6 +244,7 @@
         quantity    INT NOT NULL DEFAULT 0,
         category_id INT NOT NULL,
         created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         CONSTRAINT price_check CHECK (price >= 1000)
     ) ENGINE = InnoDB;
     ```
@@ -272,6 +270,7 @@
         quantity    INT NOT NULL DEFAULT 0,
         category_id INT NOT NULL,
         created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
         INDEX price_index(price)
     ) ENGINE = InnoDB;
     ```
@@ -305,6 +304,7 @@
         keyword     VARCHAR(100),
         description VARCHAR(100),
         created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        
         FULLTEXT product_search (name,keyword,description)
     ) ENGINE = InnoDB;
     ```

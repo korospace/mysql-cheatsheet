@@ -38,7 +38,7 @@
     <li><a href="1-ddl/README.md/#full-text-search">full text search</a></li>
   </ul>
 </details>
-<details open="open">
+<details close="close">
   <summary><a href="2-dml/README.md">DML (Data Manipulation Language)</a></summary>
   <ul>
     <li><a href="2-dml/README.md/#insert-data">insert data</a></li>
@@ -60,7 +60,7 @@
     <li><a href="3-select/README.md/#sub-queries">sub queries</a></li>
   </ul>
 </details>
-<details open="open">
+<details close="close">
   <summary><a href="4-relationship/README.md/">relationship</a></summary>
   <ul>
     <li><a href="4-relationship/README.md/#one-to-one">one to one</a></li>
