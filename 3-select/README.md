@@ -9,7 +9,7 @@
     <br />
 </p>
 
-<details close="close">
+<details open="open">
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#select-data">select data</a></li>
