@@ -1,9 +1,8 @@
 
 <p align="center">
-    <h1 align="center">CRUD</h1>
+    <h1 align="center">RELATIONSHIP</h1>
     <p align="center">
-        the syntax below is used to create, read, update or delete data on table.<br />
-        WARNING: make sure you understand how to create a foreignkey and join data in table. Click <a href="../1-sql-database-schema/README.md/#foreign-key">here</a> if you don't understand how to create a foreignkey and <a href="../2-sql-crud/README.md/#join">here</a> for understanding how to join data.<br/>
+        WARNING: make sure you understand how to create a foreignkey and join data in table, Click <a href="../1-ddl/README.md/#foreign-key">here</a> if you don't understand how to create a foreignkey and <a href="../3-select/README.md/#join">here</a> for understanding how to join data.<br/>
         <a href="../README.md"><strong>« back to menu</strong></a>
     </p>
     <br />
