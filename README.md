@@ -4,10 +4,10 @@
     <img src="images/mysql.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">SQL Cheatsheet</h3>
+  <h3 align="center">MySql Cheatsheet</h3>
 
   <p align="center">
-    This is my cheatsheet about sql syntaxt
+    This is my cheatsheet about mysql syntaxt
     <br />
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
