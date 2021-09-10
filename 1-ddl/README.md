@@ -1,6 +1,6 @@
 
 <p align="center">
-    <h1 align="center">DATABASE SCHEMA</h1>
+    <h1 align="center">DDL</h1>
     <p align="center">
         the syntax below is used to create or change table's schema at database.<br />
         <a href="../README.md"><strong>« back to menu</strong></a>
