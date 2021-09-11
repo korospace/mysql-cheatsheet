@@ -34,24 +34,24 @@
 <br />
 
 ## update data
-    ```sh
-    UPDATE products 
-    SET name = 'Kripik pisang sale manis', price = 12500,quantity = 76 
-    WHERE product_id = 'P0004';
+```sh
+UPDATE products 
+SET name = 'Kripik pisang sale manis', price = 12500,quantity = 76 
+WHERE product_id = 'P0004';
+```
+NOTE:  
+- if you not use where clause sql will change all data. so be careful
+- we can use arithmetic operations when updating data
     ```
-    NOTE:  
-    - if you not use where clause sql will change all data. so be careful
-    - we can use arithmetic operations when updating data
-        ```
-        UPDATE products set price = price + 500 WHERE product_id = 'P0004';
-        ```
+    UPDATE products set price = price + 500 WHERE product_id = 'P0004';
+    ```
 <br />
 
 ## delete data
-    ```sh
-    DELETE FROM products
-    WHERE products_id = 'P0001';
-    ```
-    NOTE:  
-    - if you not use where clause sql will delete all data. so be careful
+```sh
+DELETE FROM products
+WHERE products_id = 'P0001';
+```
+NOTE:  
+- if you not use where clause sql will delete all data. so be careful
 <br />
