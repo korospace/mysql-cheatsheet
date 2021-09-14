@@ -33,21 +33,21 @@
 </details>
 
 ## show databases
-    ```
-    SHOW DATABASES;
-    ```
+```
+SHOW DATABASES;
+```
 <br />
 
 ## create database
-    ```
-    CREATE DATABASE database_name;
-    ```
+ ```
+CREATE DATABASE database_name;
+```
 <br />
 
 ## delete database
-    ```
-    DROP DATABASE database_name;
-    ```
+```
+DROP DATABASE database_name;
+```
 <br />
 
 ## use database
@@ -65,31 +65,31 @@
 <br />
 
 ## show tables
-    ```
-    SHOW TABLES;
-    ```
+```
+SHOW TABLES;
+```
 <br />
 
 ## create table
-    ```
-    CREATE TABLE users 
-    (
-        user_id    INT(11)      AUTO_INCREMENT,
-        name       VARCHAR(100) NOT NULL,
-        email      VARCHAR(100) NOT NULL,
-        ava        VARCHAR(100) NOT NULL DEFAULT 'avatar.jpg',
-        wallet_id  INT,
-        created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+```
+CREATE TABLE users 
+(
+    user_id    INT(11)      AUTO_INCREMENT,
+    name       VARCHAR(100) NOT NULL,
+    email      VARCHAR(100) NOT NULL,
+    ava        VARCHAR(100) NOT NULL DEFAULT 'avatar.jpg',
+    wallet_id  INT,
+    created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-        PRIMARY KEY(user_id)
-    ) ENGINE = InnoDB;
-    ```
+    PRIMARY KEY(user_id)
+) ENGINE = InnoDB;
+```
 <br />
 
 ## delete table
-    ```
-    DROP TABLE table_name;
-    ```
+ ```
+DROP TABLE table_name;
+```
 <br />
 
 ## truncate table
@@ -113,9 +113,9 @@ TRUNCATE table_name;
 <br />
 
 ## rename table
-    ```
-    ALTER TABLE table_name rename to new_table_name;
-    ```
+```
+ALTER TABLE table_name rename to new_table_name;
+```
 <br />
 
 ## edit column
