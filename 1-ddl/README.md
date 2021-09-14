@@ -33,19 +33,19 @@
 </details>
 
 ## show databases
-    ```sh
+    ```
     SHOW DATABASES;
     ```
 <br />
 
 ## create database
-    ```sh
+    ```
     CREATE DATABASE database_name;
     ```
 <br />
 
 ## delete database
-    ```sh
+    ```
     DROP DATABASE database_name;
     ```
 <br />
@@ -65,13 +65,13 @@
 <br />
 
 ## show tables
-    ```sh
+    ```
     SHOW TABLES;
     ```
 <br />
 
 ## create table
-    ```sh
+    ```
     CREATE TABLE users 
     (
         user_id    INT(11)      AUTO_INCREMENT,
@@ -87,16 +87,16 @@
 <br />
 
 ## delete table
-    ```sh
+    ```
     DROP TABLE table_name;
     ```
 <br />
 
 ## truncate table
-* This statement is used to remove all records from a table and reset AUTO_INCREMENT from zero. 
-    ```sh
-    TRUNCATE table_name;
-    ```
+*This statement is used to remove all records from a table and reset AUTO_INCREMENT from zero.*
+```
+TRUNCATE table_name;
+```
 <br />
 
 ## desc table
@@ -113,7 +113,7 @@
 <br />
 
 ## rename table
-    ```sh
+    ```
     ALTER TABLE table_name rename to new_table_name;
     ```
 <br />
@@ -230,7 +230,7 @@
 
 * drop a unique constraint
     ```sh
-    ALTER TABLE users DROP CONSTRAINT name_is_uniqNDEX fk_w_p;
+    ALTER TABLE users DROP CONSTRAINT name_is_unique;
     ```
 <br />
 
