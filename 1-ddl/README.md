@@ -66,10 +66,9 @@ DROP DATABASE database_name;
 <br />
 
 ## set table engines
-* This statement is used to display a list of existing storage engines in the database.
-    ```sh
-    ALTER TABLE dbname.tablename ENGINE=InnoDB;
-    ```
+```
+ALTER TABLE dbname.tablename ENGINE=InnoDB;
+```
 <br />
 
 ## show tables
