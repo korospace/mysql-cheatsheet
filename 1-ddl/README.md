@@ -17,6 +17,7 @@
     <li><a href="#delete-database">delete database</a></li>
     <li><a href="#use-database">use database</a></li>
     <li><a href="#show-engines">show engines</a></li>
+    <li><a href="#set-table-engines">show engines</a></li>
     <li><a href="#show-tables">show tables</a></li>
     <li><a href="#create-table">create table</a></li>
     <li><a href="#delete-table">delete table</a></li>
