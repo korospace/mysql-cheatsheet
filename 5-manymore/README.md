@@ -114,7 +114,11 @@
 
 ## backup database
 * ```
-  /opt/lampp/bin/mysqldump database_name --user root --password --result-file=/opt/lampp/htdocs/database_name.sql
+  /opt/lampp/bin/mysqldump --user root --password database_name --result-file=/opt/lampp/htdocs/database_name.sql
+  ```
+  
+* ```
+  /opt/lampp/bin/mysqldump --host hostname -P portnumber --user username --password db_name --result-file=/path/to/db_name.sql
   ```
 ## restore database
 * ```
